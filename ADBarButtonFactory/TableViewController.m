@@ -21,8 +21,8 @@
     
     self.view.backgroundColor = [UIColor grayColor];
     
-    UIBarButtonItem *left = [ADBarButtonFactory createBarButtonItemWithTitle:@"Wu" target:nil action:nil color:[UIColor blackColor] bgColor:[UIColor blueColor]];
-    UIBarButtonItem *right = [ADBarButtonFactory createBarButtonItemWithTitle:@"Tang" target:nil action:nil color:[UIColor purpleColor] bgColor:[UIColor yellowColor]];
+    UIBarButtonItem *left = [ADBarButtonFactory createBarButtonItemWithTitle:@"Wu" font:[UIFont fontWithName:@"Helvetica" size:13.f] target:nil action:nil color:[UIColor blackColor] bgColor:[UIColor blueColor]];
+    UIBarButtonItem *right = [ADBarButtonFactory createBarButtonItemWithTitle:@"Tang" font:[UIFont fontWithName:@"Helvetica" size:13.f] target:nil action:nil color:[UIColor purpleColor] bgColor:[UIColor yellowColor]];
     
     self.navigationItem.leftBarButtonItem = left;
     self.navigationItem.rightBarButtonItem = right;
