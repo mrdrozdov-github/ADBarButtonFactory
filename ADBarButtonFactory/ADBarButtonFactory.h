@@ -12,6 +12,7 @@
 
 @interface ADBarButtonFactory : NSObject
 
-+ (UIBarButtonItem *)createBarButtonItemWithTitle:(NSString *)t target:(id)tgt action:(SEL)a color:(UIColor*)color bgColor:(UIColor*)bgColor;
++ (UIButton*)createButtonWithTitle:(NSString *)t font:(UIFont*)font target:(id)tgt action:(SEL)a color:(UIColor*)color bgColor:(UIColor*)bgColor;
++ (UIBarButtonItem *)createBarButtonItemWithTitle:(NSString *)t font:(UIFont*)font target:(id)tgt action:(SEL)a color:(UIColor*)color bgColor:(UIColor*)bgColor;
 
 @end

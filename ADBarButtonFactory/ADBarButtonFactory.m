@@ -22,22 +22,24 @@
     return img;
 }
 
-+ (UIBarButtonItem *)createBarButtonItemWithTitle:(NSString *)t target:(id)tgt action:(SEL)a color:(UIColor*)color bgColor:(UIColor*)bgColor
++ (UIButton*)createButtonWithTitle:(NSString *)t font:(UIFont*)font target:(id)tgt action:(SEL)a color:(UIColor*)color bgColor:(UIColor*)bgColor
 {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *button = [[UIButton alloc] init];
     
-    CGSize size = [t sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.0f]}];
+    CGSize size = [t sizeWithAttributes:@{NSFontAttributeName:font}];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, ceilf(size.width), ceilf(size.height))];
     label.text = t;
     label.textColor = color;
     label.backgroundColor = [UIColor clearColor];
+    label.font = font;
     UIImage *img = [self imageWithView:label];
     
     UILabel *bgLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, ceilf(size.width), ceilf(size.height))];
     bgLabel.text = t;
     bgLabel.textColor = bgColor;
     bgLabel.backgroundColor = [UIColor clearColor];
+    bgLabel.font = font;
     UIImage *bgImg = [self imageWithView:bgLabel];
     
     CGRect buttonFrame = [button frame];
@@ -49,6 +51,13 @@
     [button setBackgroundImage:bgImg forState:UIControlStateHighlighted];
     
     [button addTarget:tgt action:a forControlEvents:UIControlEventTouchUpInside];
+    
+    return button;
+}
+
++ (UIBarButtonItem *)createBarButtonItemWithTitle:(NSString *)t font:(UIFont*)font target:(id)tgt action:(SEL)a color:(UIColor*)color bgColor:(UIColor*)bgColor
+{
+    UIButton *button = [self createButtonWithTitle:t font:font target:tgt action:a color:color bgColor:bgColor];
     
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
