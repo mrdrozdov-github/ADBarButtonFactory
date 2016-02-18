@@ -10,7 +10,7 @@ ADBarButtonFactory
 
 ### Problem
 
-It's non-trivial to manipulate the "highlighted" background color of the iOS UIBarButtonItem.
+Since iOS 7 it's non-trivial to manipulate the "highlighted" background color of a UIBarButtonItem with text label.
 
 ### Solution
 
